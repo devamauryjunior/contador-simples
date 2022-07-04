@@ -1,0 +1,30 @@
+function pararContador() {
+    return false;
+}
+function showContador() {
+    const getContador = document.querySelector('#contador');
+    let contadorSegundo = 0;
+    let contadorMinuto = 0;
+    let contadorHora = 0;
+    const verdadeiro = true;
+    while(verdadeiro){
+        contadorSegundo++;
+        if(contadorSegundo === 60){
+            contadorMinuto++;
+            if(contadorMinuto === 60){
+                contadorHora++;
+                contadorMinuto = 0;
+                if(contadorHora === 24) {
+                    contadorHora = 0;
+                }
+            }
+            contadorSegundo = 0;
+        }
+        console.log(`${contadorHora} : ${contadorMinuto} : ${contadorSegundo}`);
+        // getContador.innerText += `${contadorHora} h: ${contadorMinuto} m: ${contadorSegundo}`;
+        document.write(`${contadorSegundo}`);
+    }
+}
+const getButtonPause = document.querySelector('#pause');
+const getButtonStart = document.querySelector('#start');
+getButtonStart.addEventListener('click', showContador);
